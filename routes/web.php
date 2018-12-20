@@ -10,24 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware' => 'Everyone'], function(){
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-    // Route::group(['namespace' => 'business'], function(){
-    //     Route::any('/group=admin&action=login&method={method}',function($method, Request $request){
+    Route::group(['namespace' => 'business'], function(){
 
-    //         return routeDispatch($request, 'admin', 'login', $method);
-    //     });
+        Route::any('/group=business&action={action}&method={method}',function($action, $method, Request $request){
 
-    //     Route::any('/group=admin&action={action}&method={method}',function($action, $method, Request $request){
+            return routeDispatch($request, 'business', $action, $method);
+        });
+    });
 
-    //         return routeDispatch($request, 'admin', $action, $method);
-    //     })->middleware('AdminCheckLogin');
-    // });
-
-Route::group(['namespace' => 'Business'], function(){
-        Route::get('/', 'BusinessController@Index');
+// Route::group(['namespace' => 'Business'], function(){
+//         Route::get('/', 'BusinessController@Index');
        
+// });
 });
