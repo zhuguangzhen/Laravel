@@ -7,11 +7,11 @@
 
   <title>Letter - Simple Sign Up Form</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-  <link rel="stylesheet" href="/css/business/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/business/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('/css/business/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/business/bootstrap.min.css') }}">
   
-  <link rel="stylesheet" href='/css/business/demo.css' />
-  <link rel="stylesheet" href='/css/business/templatemo-style.css'>
+  <link rel="stylesheet" href="{{ asset('/css/business/demo.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('/css/business/templatemo-style.css') }}">
   
   <script type="text/javascript" src="/js/business/modernizr.custom.86080.js"></script>
   
@@ -70,6 +70,6 @@
       </div>  
   </body>
 
-  <script type="text/javascript" src="/js/business/particles.js"></script>
-  <script type="text/javascript" src="/js/business/app.js"></script>
+  <script type="text/javascript" src="{{ asset('/js/business/particles.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/js/business/app.js') }}"></script>
 </html>
