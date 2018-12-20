@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+    // Route::group(['namespace' => 'business'], function(){
+    //     Route::any('/group=admin&action=login&method={method}',function($method, Request $request){
+
+    //         return routeDispatch($request, 'admin', 'login', $method);
+    //     });
+
+    //     Route::any('/group=admin&action={action}&method={method}',function($action, $method, Request $request){
+
+    //         return routeDispatch($request, 'admin', $action, $method);
+    //     })->middleware('AdminCheckLogin');
+    // });
+
+Route::group(['namespace' => 'Business'], function(){
+        Route::get('/', 'BusinessController@Index');
+       
 });
