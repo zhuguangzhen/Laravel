@@ -9,8 +9,7 @@ use DB;
 class BusinessController extends Controller
 {
     public function Index(){
-    	$a = DB::table('z_admin')->get();
-    	dd($a);
+    	
     	return view('/business/index/index');
     }
 }
