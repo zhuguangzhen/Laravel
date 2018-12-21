@@ -54,10 +54,10 @@
                     </form>
                     
           <div class="tm-social-icons-container text-xs-center">
-                      <a href="#" class="tm-social-link"><i class="fa fa-facebook"></i></a>
-                      <a href="#" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
-                      <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
-                      <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
+                      <a href="/group=business&action=login&method=index" class="tm-social-link"><i class="fa fa-facebook"></i></a>
+                      <a href="/group=business&action=business&method=index" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
+                      <a href="/group=business&action=business&method=index" class="tm-social-link"><i class="fa fa-twitter"></i></a>
+                      <a href="/group=business&action=business&method=index" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
                   </div>
 
           </div>

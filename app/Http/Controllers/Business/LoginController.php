@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Business;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class IndexController extends Controller
+class LoginController extends Controller
 {
     public function Index(){
-    	return 222;
+    	return view('/business/login/index');
     }
 }
