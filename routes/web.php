@@ -11,9 +11,6 @@
 |
 */
 Route::group(['middleware' => 'Everyone'], function(){
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
     Route::group(['namespace' => 'business'], function(){
 
@@ -23,8 +20,4 @@ Route::group(['middleware' => 'Everyone'], function(){
         });
     });
 
-// Route::group(['namespace' => 'Business'], function(){
-//         Route::get('/', 'BusinessController@Index');
-       
-// });
 });
