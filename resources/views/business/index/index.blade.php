@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Letter - Simple Sign Up Form</title>
+  <title>Flying-monkey</title>
+  <link rel="icon" href="/image/webimg/1.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
   <link rel="stylesheet" href="{{ asset('/css/business/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/business/bootstrap.min.css') }}">
@@ -62,10 +63,8 @@
           </div>
         </div>  
         <div class="footer-link">
-          <p>Copyright © 2018 for Flying-monkey
-                    
-                     Design <br>  <a rel="nofollow" href="#" target="_parent">Welcome to visit and exchange</a></p>
-                    <p>More please login <a href="" target="_blank" title="">Flying </a>- <a href="" title="" target="_blank">monkey</a></p>
+          <p>Copyright © 2018 for Flying-monkey Design </p><p><a rel="nofollow" href="#" target="_parent">Welcome to visit and exchange</a>
+                    More please login <a href="" target="_blank" title="">Flying </a>- <a href="" title="" target="_blank">monkey</a></p>
         </div>
       </div>  
   </body>
