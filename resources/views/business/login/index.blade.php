@@ -5,6 +5,7 @@
 <link rel="stylesheet" media="screen" href="{{ asset('/css/login/css.css') }}" />
 <link rel="stylesheet" href="{{ asset('/css/business/templatemo-style.css') }}">
 <link rel="icon" href="/image/webimg/1.png">
+<link rel="stylesheet" href="{{ asset('/css/login/style.css') }}">
 </head>
 
 <form id="msform">
@@ -52,5 +53,28 @@
           <p>Copyright © 2018 for Flying-monkey Design </p><p><a rel="nofollow" href="#" target="_parent">Welcome to visit and exchange</a>
                     More please login <a href="" target="_blank" title="">Flying </a>- <a href="" title="" target="_blank">monkey</a></p>
         </div>
+
+        <div class="night">
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+</div>
 </body>
 </html>

@@ -20,4 +20,8 @@ Route::group(['middleware' => 'Everyone'], function(){
         });
     });
 
+    Route::get('/',function(){
+    	return view('/business/index/index');
+    });
+
 });
