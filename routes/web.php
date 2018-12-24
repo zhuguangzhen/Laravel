@@ -10,18 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'Everyone'], function(){
+	Route::group(['middleware' => 'Everyone'], function(){
 
-    Route::group(['namespace' => 'business'], function(){
+	    Route::group(['namespace' => 'business'], function(){
 
-        Route::any('/group=business&action={action}&method={method}',function($action, $method, Request $request){
+	        Route::any('/group=business&action={action}&method={method}',function($action, $method, Request $request){
 
-            return routeDispatch($request, 'business', $action, $method);
-        });
-    });
+	            return routeDispatch($request, 'business', $action, $method);
+	        });
+	    });
+
+	});
 
     Route::get('/',function(){
     	return view('/business/index/index');
     });
-
-});
