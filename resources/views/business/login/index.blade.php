@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<title>jQuery/CSS3分步骤注册表单切换动画在线演示</title>
+<title>Flying-monkey register</title>
 <link rel="stylesheet" media="screen" href="{{ asset('/css/login/css.css') }}" />
 <link rel="stylesheet" href="{{ asset('/css/business/templatemo-style.css') }}">
 <link rel="icon" href="/image/webimg/1.png">
@@ -17,15 +17,15 @@
 	<!-- fieldsets -->
 	<fieldset>
 		<h2 class="fs-title">Create your account</h2>
-		<h3 class="fs-subtitle">This is step 1</h3>
+		<h3 class="fs-subtitle">This is step one</h3>
 		<input type="text" name="email" placeholder="Email" />
 		<input type="password" name="pass" placeholder="Password" />
 		<input type="password" name="cpass" placeholder="Confirm Password" />
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
 	<fieldset>
-		<h2 class="fs-title">Social Profiles</h2>
-		<h3 class="fs-subtitle">Your presence on the social network</h3>
+		<h2 class="fs-title">Personal information</h2>
+		<h3 class="fs-subtitle">Your personal situation will help you find your password</h3>
 		<input type="text" name="twitter" placeholder="Twitter" />
 		<input type="text" name="facebook" placeholder="Facebook" />
 		<input type="text" name="gplus" placeholder="Google Plus" />
@@ -33,7 +33,7 @@
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
 	<fieldset>
-		<h2 class="fs-title">Personal Details</h2>
+		<h2 class="fs-title">Contact information</h2>
 		<h3 class="fs-subtitle">We will never sell it</h3>
 		<input type="text" name="fname" placeholder="First Name" />
 		<input type="text" name="lname" placeholder="Last Name" />

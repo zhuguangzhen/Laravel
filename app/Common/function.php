@@ -15,7 +15,3 @@ function routeDispatch($request, $group, $action = 'index', $method = 'index'){
         }
     }
 }
-
-function test(){
-        
-    }

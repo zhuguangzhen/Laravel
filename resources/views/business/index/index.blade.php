@@ -34,24 +34,21 @@
       <div class="container-fluid">
         <div class="row cb-slideshow-text-container ">
           <div class= "tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
-          <header class="mb-5"><h1>To You Letter</h1></header>
-          <P class="mb-5">If you would go up high , then use your own legs ! Do not let yourselves carried aloft; do not seat yourselves on other people's backs and heads!</P>
-          
-                    <form action="#" method="get" class="subscribe-form">
-                      <div class="row form-section">
-
-
-                
+          <header class="mb-5"><h1>chicken soup</h1></header>
+          <!-- <P class="mb-5">When you feel ugly and poor, don't be sad, at least your judgment is right.</P> -->
+          <P class="mb-5">Life never beckons politely to you and says, "Come here, let's be reasonable." Life just knocks you down with a big mouth and says, "Stupid, learn!"</P>
+         <form action="/group=business&action=business&method=index" method="get" class="subscribe-form">
+            <div class="row form-section">
               <div class="col-md-7 col-sm-7 col-xs-7">
-                            <input name="email" type="text" class="form-control" id="contact_email" placeholder="What do you want to say? " required/>
+                            <input name="message" type="text" class="form-control" id="contact_email" placeholder="leaving message" required/>
                 </div> 
 
               <div class="col-md-5 col-sm-5 col-xs-5">
-                <button type="submit" class="tm-btn-subscribe">Subscribe</button>
+                <button type="submit" class="tm-btn-subscribe">submit</button>
               </div>
             
             </div>
-                    </form>
+        </form>
                     
           <div class="tm-social-icons-container text-xs-center">
                       <a href="/group=business&action=login&method=index" class="tm-social-link"><i class="fa fa-facebook"></i></a>
