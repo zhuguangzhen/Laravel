@@ -23,5 +23,5 @@ use Illuminate\Http\Request;
 	});
 
     Route::get('/',function(){
-      return view('/error/404/404');
+      return view('/business/index/index');
     });
