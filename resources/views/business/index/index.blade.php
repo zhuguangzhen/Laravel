@@ -60,8 +60,7 @@
           </div>
         </div>  
         <div class="footer-link">
-          <p>Copyright © 2018 for Flying-monkey Design </p><p><a rel="nofollow" href="#" target="_parent">Welcome to visit and exchange</a>
-                    More please login <a href="" target="_blank" title="">Flying </a>- <a href="" title="" target="_blank">monkey</a></p>
+          <p>Copyright © 2019 for Flying-monkey Design </p><p>Ownership and final interpretation rights belong to Mr. Zhu.</p>
         </div>
       </div>  
   </body>

@@ -12,6 +12,8 @@ function routeDispatch($request, $group, $action = 'index', $method = 'index'){
         
         if(method_exists($obj, $method)){
             return call_user_func( array( $obj, $method), $request );
+        }else{
+           return view('/error/404/404');
         }
     }
 }
