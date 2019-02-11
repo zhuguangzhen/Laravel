@@ -9,7 +9,6 @@ function routeDispatch($request, $group, $action = 'index', $method = 'index'){
 
     if(class_exists($class)){
         $obj = new $class();
-        
         if(method_exists($obj, $method)){
             return call_user_func( array( $obj, $method), $request );
         }else{

@@ -25,3 +25,20 @@ use Illuminate\Http\Request;
     Route::get('/',function(){
       return view('/business/index/index');
     });
+
+
+ //    	Route::group(['middleware' => 'Everyone'], function(){
+
+	//     Route::group(['namespace' => 'News'], function(){
+
+	//         Route::any('/group=news&action={action}&method={method}',function($action, $method, Request $request){
+
+	//             return routeDispatch($request, 'news', $action, $method);
+	//         });
+	//     });
+
+	// });
+
+ //    Route::get('/',function(){
+ //      return view('/new/index/index');
+ //    });

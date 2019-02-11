@@ -34,17 +34,17 @@
       <div class="container-fluid">
         <div class="row cb-slideshow-text-container ">
           <div class= "tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
-          <header class="mb-5"><h1>chicken soup</h1></header>
+          <header class="mb-5"><h1>Hello</h1></header>
           <!-- <P class="mb-5">When you feel ugly and poor, don't be sad, at least your judgment is right.</P> -->
-          <P class="mb-5">Life never beckons politely to you and says, "Come here, let's be reasonable." Life just knocks you down with a big mouth and says, "Stupid, learn!"</P>
+          <P class="mb-5">请输入你想进行的指令，窜天猴带你装X带你飞！</P>
          <form action="/group=business&action=business&method=index" method="get" class="subscribe-form">
             <div class="row form-section">
               <div class="col-md-7 col-sm-7 col-xs-7">
-                            <input name="message" type="text" class="form-control" id="contact_email" placeholder="leaving message" required/>
+                            <input name="message" type="text" class="form-control" id="contact_email" placeholder="What do you want to do?" required/>
                 </div> 
 
               <div class="col-md-5 col-sm-5 col-xs-5">
-                <button type="submit" class="tm-btn-subscribe">submit</button>
+                <button type="submit" class="tm-btn-subscribe">GO!</button>
               </div>
             
             </div>
