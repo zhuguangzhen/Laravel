@@ -40,5 +40,5 @@ use Illuminate\Http\Request;
 	});
 
     Route::get('/',function(){
-      return view('/new/index/index');
+      return view('/news/index/index');
     });
