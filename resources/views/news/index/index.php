@@ -493,7 +493,7 @@ function c() {
     
     <div id="content_4">
     <div class="content_4_1">
-     <img src="system/templates/zsyy/images/he1.jpg">
+     <img src="system/templates/zsyy/images/he1.png">
     </div>
      <div class="content_4_2">
      山东朱氏药业集团品牌核心产业
@@ -745,7 +745,7 @@ function c() {
         
       </div>
        <div class="right">
-      <img src="system/templates/zsyy/images/er.jpg">
+      <img src="system/templates/zsyy/images/er.png">
       </div>
       
       

@@ -37,6 +37,14 @@ use Illuminate\Http\Request;
 	        });
 	    });
 
+	    Route::group(['namespace' => 'Admin'], function(){
+
+	        Route::any('/group=admin&action={action}&method={method}',function($action, $method, Request $request){
+
+	            return routeDispatch($request, 'admin', $action, $method);
+	        });
+	    });
+
 	});
 
     Route::get('/',function(){
