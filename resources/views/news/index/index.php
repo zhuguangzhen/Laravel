@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>山东朱氏药业集团有限公司官网</title>
@@ -45,9 +45,9 @@
 				<table border="0" cellpadding="0" cellspacing="0" style="float:right;">
 					<tbody><tr>
 						<td><img src="system/templates/zsyy/images/weixin_icon.png"></td>
-						<td style="width:120px;"><a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=46&amp;l=1&amp;page=1">山东朱氏药业集团微信</a></td>
+						<td style="width:120px;"><a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=46&amp;l=1&amp;page=1">官方微信</a></td>
 						<td><img src="system/templates/zsyy/images/sina_icon.png"></td>
-						<td style="width:130px;"><a href="http://blog.sina.com.cn/s/blog_13f5e64710102v7zj.html">山东朱氏药业集团微博</a></td>
+						<td style="width:130px;"><a href="http://blog.sina.com.cn/s/blog_13f5e64710102v7zj.html">官方微博</a></td>
 						<script type="text/javascript" language="javascript">
 function c() {
   if ($("#key").val() == "") 
@@ -163,16 +163,17 @@ function c() {
     <div id="full-screen-slider">
 	<ul id="slides">
      
-		<li style="background: url(&quot;uploadfile/image/20190211/201503060313090.jpg&quot;) center top no-repeat; z-index: 900; display: none;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=12&amp;l=1&amp;page=1}#" target="_blank"></a></li>
+		<li style="background: url(&quot;uploadfile/image/20190211/201503060313090.jpg&quot;) center top no-repeat; z-index: 900; display: block;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=12&amp;l=1&amp;page=1}#" target="_blank"></a></li>
 	 
-		<li style="background: url(&quot;uploadfile/image/20190211/201510160830390.jpg&quot;) center top no-repeat; z-index: 800; display: block;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=46&amp;l=1&amp;page=1" target="_blank"></a></li>
+		<li style="background: url(&quot;uploadfile/image/20190211/201510160830390.jpg&quot;) center top no-repeat; z-index: 800; display: none;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=46&amp;l=1&amp;page=1" target="_blank"></a></li>
 	 
 		<li style="background: url(&quot;uploadfile/image/20190211/201511260120370.jpg&quot;) center top no-repeat; z-index: 900; display: none;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=show&amp;catid=10&amp;l=1&amp;id=144" target="_blank"></a></li>
 	 
 		<li style="background: url(&quot;uploadfile/image/20190211/201709040437490.jpg&quot;) center top no-repeat; z-index: 900; display: none;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=show&amp;catid=13&amp;l=1&amp;id=19" target="_blank"></a></li>
 	 	
 		
-	</ul><ul id="pagination" style="margin-left: 370px;"><li class=""><a href="#">1</a></li><li class="current"><a href="#">2</a></li><li class=""><a href="#">3</a></li><li class=""><a href="#">4</a></li></ul>
+	</ul>
+
 </div>
     
             
@@ -493,7 +494,7 @@ function c() {
     
     <div id="content_4">
     <div class="content_4_1">
-     <img src="system/templates/zsyy/images/he1.png">
+     <img src="system/templates/zsyy/images/he1.jpg">
     </div>
      <div class="content_4_2">
      山东朱氏药业集团品牌核心产业
@@ -605,7 +606,7 @@ function c() {
               
 			</div>
 		</div>
-		<div class="content_5_2">
+<!-- 		<div class="content_5_2">
          <div>
           <a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=42&amp;l=1&amp;page=1"><img src="system/templates/zsyy/images/honor.jpg"></a>
          </div>
@@ -650,7 +651,7 @@ function c() {
          </div>
         
         </div>
-	</div>
+	</div> -->
     
        <div class="clear"></div>
 	

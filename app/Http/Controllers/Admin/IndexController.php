@@ -10,4 +10,9 @@ class IndexController extends Controller
    public function login(Request $request){
    		return view('/Admin/index/login');
    }
+
+   public function checklogin(Request $request){
+   		$userName = $request->userName;
+   		$pass = $request->pass;
+   }
 }
