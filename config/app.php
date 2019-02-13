@@ -53,7 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
+    'new_url' => 'http://localhost/Laravel/public/',
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

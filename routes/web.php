@@ -47,6 +47,6 @@ use Illuminate\Http\Request;
 
 	});
 
-    Route::get('/',function(){
-      return view('/news/index/index');
+    Route::get('/',function(Request $request){
+    	return Redirect('/group=news&action=index&method=index');
     });
