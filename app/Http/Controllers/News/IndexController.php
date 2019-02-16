@@ -36,6 +36,7 @@ class IndexController extends Controller
         }
 
         $data['product'] = DB::table('n_product_desc')->where('isuse','1')->get();
+        $data['Bbanner'] = DB::table('n_banner_bottom')->where('isuse','1')->get();
 // dd($data);
         return view('/news/index/index',$data);
     }

@@ -309,39 +309,38 @@ function c() {
      
 
       
-       <div class="TabContent">
-	<div id="myTab_Content0" style="display: none;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=12&amp;l=1&amp;page=1}" target="_blank"><img src="/uploadfile/image/20190211/20160313150020_74356.jpg" alt="" height="380" width="1000"></a></div>
-	<div id="myTab_Content1" class="none" style="display: none;"><img src="/uploadfile/image/20170904/20170904150955_77489.jpg" alt=""><br></div>
-    <div id="myTab_Content2" class="none" style="display: none;"><p align="center">
-	<img src="/uploadfile/image/20190211/20190111165633_46592.jpg" alt="">
-</p></div>
-	<div id="myTab_Content3" class="none" style="display: block;"><div style="text-align:center;">
-	<a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=22&amp;l=1&amp;page=1}" target="_blank"><img src="/uploadfile/image/20190211/20150925105352_96771.jpg" width="1000" height="379" alt=""></a> 
-</div></div>
-	</div>	
-   
+    <div class="TabContent">
 
-     
-     
-     
+<!-- 	<div id="myTab_Content0" style="display: none;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=12&amp;l=1&amp;page=1}" target="_blank"><img src="/uploadfile/image/20190211/20160313150020_74356.jpg" alt="" height="380" width="1000"></a></div>
+	<div id="myTab_Content1" class="none" style="display: none;"><img src="/uploadfile/image/20170904/20170904150955_77489.jpg" alt=""><br></div>
+    <div id="myTab_Content2" class="none" style="display: none;"><p align="center"><img src="/uploadfile/image/20190211/20190111165633_46592.jpg" alt=""></p></div>
+	 -->
+	 @foreach($Bbanner as $k=>$v)
+	 <div id="myTab_Content{{$k}}" class="none" style="@if($k==0)display: block;@else display: none; @endif">
+	 	<div style="text-align:center;">
+	 		<a href="" target="_blank"><img src="{{$path}}{{$v->image}}" width="1000" height="379" alt=""></a> 
+	 	</div>
+	 </div>
+	 @endforeach
+	</div>	
+
       <div class="nTab">
 		<div class="TabTitle">
 		<ul id="myTab">
-		<li class="normal" onmouseover="nTabs(this,0);">新药物技术研发</li>
-		<li class="normal" onmouseover="nTabs(this,1);">地产开发</li> 
-        <li class="normal" onmouseover="nTabs(this,2);">企业培训</li>
-		<li class="active" onmouseover="nTabs(this,3);">物流运输</li> 			      
+			@foreach($Bbanner as $k=>$v)
+			<li class="@if($k==0)active @else normal @endif" onmouseover="nTabs(this,{{$k}});">{{$v->title}}</li>
+			@endforeach	
 		</ul>
 		</div>
      
-     <div class="contentpic">
+    <!--  <div class="contentpic">
        <ul>
         <li class="xinyao" onmouseover="nTabs(this,0);"><a href="#" style="background:#F00;">新药技术研发</a></li>
         <li class="dichan" onmouseover="nTabs(this,1);"><a href="#">地产开发</a></li>
         <li class="qiye" onmouseover="nTabs(this,2);"><a href="#">企业培训</a></li>
         <li class="wuliu" onmouseover="nTabs(this,3);"><a href="#">物流运输</a></li>
        </ul>
-     </div>
+     </div> -->
   </div>
 </div>
     </div>
