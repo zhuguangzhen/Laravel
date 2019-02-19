@@ -45,14 +45,14 @@
 						<td style="@if(!$sina['isshow'])display:none; @endif"><img src="{{$setting_path.$sina['image']}}"></td>
 						<td style="width:130px;@if(!$sina['isshow'])display:none; @endif"><a href="">官方微博</a></td>
 						<script type="text/javascript" language="javascript">
-function c() {
-  if ($("#key").val() == "") 
-  {
-		 alert("搜索产品内容不能为空！");
-		  $("#key").focus();
-		  return false;
-  }
-}
+//function c() {
+//  if ($("#key").val() == "")
+//  {
+//		 alert("搜索产品内容不能为空！");
+//		  $("#key").focus();
+//		  return false;
+//  }
+//}
 </script>
 					 <form id="form1" name="form1" method="get" action="index.php"></form>
 <td>
@@ -332,57 +332,17 @@ function c() {
 			@endforeach	
 		</ul>
 		</div>
-     
-    <!--  <div class="contentpic">
-       <ul>
-        <li class="xinyao" onmouseover="nTabs(this,0);"><a href="#" style="background:#F00;">新药技术研发</a></li>
-        <li class="dichan" onmouseover="nTabs(this,1);"><a href="#">地产开发</a></li>
-        <li class="qiye" onmouseover="nTabs(this,2);"><a href="#">企业培训</a></li>
-        <li class="wuliu" onmouseover="nTabs(this,3);"><a href="#">物流运输</a></li>
-       </ul>
-     </div> -->
   </div>
 </div>
     </div>
-	<div id="content_5" style="@if(!$content_5['isshow'])display:none;@endif">
-		<div class="content_5_1">
-			<div class="content_5_1_left">
-				<div class="content_5_1_left_1">
-					<a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=43&amp;l=1&amp;page=1">更多&gt;</a>
-				</div>
-				<div class="content_5_1_left_2">
-					<div style="padding:12px 5px  0px 0px; text-align:center;">  
-					<img src="/uploadfile/image/20190211/20160313150915_14086.jpg" alt="" height="141" width="315">
-					</div>
-				</div>
-			</div>
-			<div class="content_5_1_right">
-				<div class="content_5_1_right_1">
-					<a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=8&amp;l=1&amp;page=1">更多&gt;</a>
-				</div>
-                <div class="content_5_1_pic">
-                <img src="system/templates/zsyy/images/about.jpg">
-              </div>
-              <div class="content_5_1_text"><p>
-	<a target="_blank" href="http://www.sdzsyyjt.com">山东鹊经堂</a><span id="__kindeditor_bookmark_end_17__" style="display:none;"></span>是一家集医疗器械、生物诊断试剂、高分子材料研发、房地产开发、医疗器械<a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=14&amp;l=1&amp;page=1}" target="_blank">企业培训</a>于一体的大型企业。组建于2005年7月，现有员工800多人。
-</p>
-<p>
-	旗下拥有子公司12家，涉及<a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=43&amp;l=1&amp;page=1}" target="_blank">医疗器械</a>、<a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=13&amp;l=1&amp;page=1}" target="_blank">房地产</a>、企业咨询管理培训等数十个领域，其中贴膏贴剂主营产品包括妇科、儿科、风湿骨病等贴膏产品。
-</p>
-<p>
-	<br>
-</p>
-              </div>
-              
-			</div>
-		</div>
-		<div class="content_5_2">
-         <div>
-          <a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=42&amp;l=1&amp;page=1"><img src="system/templates/zsyy/images/honor.jpg"></a>
+
+	<div id="content_5" style=" @if(!$content_5['isshow'])display:none;@endif  @if($videolenth > 4 ) height:{{ceil($videolenth/4)*250}}px; @endif ">
+		<div class="content_5_2" >
+         <div class="video_image">
+          <a href=""><img src="{{$setting_path.$video_img['image']}}"></a>
          </div>
          <div class="honorlest">
-           <ul>
-                          
+     <ul>
          <li>
             <div class="honorz">
              <div class="honorpic"><img src="uploadfile/image/20190211/201610150937060.png"></div>
@@ -414,14 +374,26 @@ function c() {
             </div>
             <div class="clear"></div>
            </li>
-            
-           
-           </ul>
-           
+               <li>
+                   <div class="honorz">
+                       <div class="honorpic"><img src="uploadfile/image/20190211/201505111020190.png"></div>
+                       <div>高新技术企业</div>
+                   </div>
+                   <div class="clear"></div>
+               </li>
+
+               <li>
+                   <div class="honorz">
+                       <div class="honorpic"><img src="uploadfile/image/20190211/201505111020190.png"></div>
+                       <div>高新技术企业</div>
+                   </div>
+                   <div class="clear"></div>
+               </li>
+         </ul>
+
          </div>
-        
-        </div>
-	</div>
+    </div>
+</div>
     
        <div class="clear"></div>
 	
@@ -430,11 +402,13 @@ function c() {
        <div class="content_6_1">
          <div class="yuanlr">
                <div class="yuanspic">
-                 <img src="/uploadfile/image/20190211/20180228101010_66848.jpg" width="294" height="164" alt="">
+                 {{--<img src="/uploadfile/image/20190211/20180228101010_66848.jpg" width="294" height="164" alt="">--}}
+                   <img src="{{$path}}store/{{$store['0']->image}}" alt="" height="160" width="295">
                </div>
                 <div class="yuanxpic">
                 <p align="center">
-	<img src="/uploadfile/image/20190211/20150830101805_36745.jpg" width="293" height="173" alt=""> 
+	{{--<img src="/uploadfile/image/20190211/20150830101805_36745.jpg" width="293" height="173" alt=""> --}}
+                    <img src="{{$path}}store/{{$store['1']->image}}" alt="" height="160" width="295">
 </p>
                 </div>
          </div>
@@ -442,13 +416,15 @@ function c() {
          <div class="yuanm">
          
                <div class="yuanspic5">
-                <img src="/uploadfile/image/20190211/20141111091339_39731.jpg" alt="">
+                   <img src="{{$path}}store/{{$store['2']->image}}" alt="" height="160" width="295">
                </div>
+
                <div class="yuanpic6">
-               <a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=45&amp;l=1&amp;page=1"><img src="system/templates/zsyy/images/yuan6.jpg"></a>
+               <a href=""><img src="{{$setting_path.$yuanpic6['image']}}"></a>
                </div>
+
                 <div class="yuanspic7">
-                <img src="/uploadfile/image/20190211/20180228101620_84976.png" alt="">
+                <img src="{{$path}}store/{{$store['3']->image}}" alt="" height="160" width="295">
                 </div>
          
          </div>
@@ -456,12 +432,12 @@ function c() {
          <div class="yuanlrr">
                <div class="yuanspic">
                 <p align="center">
-	<img src="/uploadfile/image/20190211/20170206084203_85358.jpg" alt="">
+                    <img src="{{$path}}store/{{$store['4']->image}}" alt="" height="160" width="295">
 </p>
                </div>
                 <div class="yuanxpic">
                <div style="text-align:center;">
-	<img src="/uploadfile/image/20190211/20160313151253_18171.jpg" alt="" height="166" width="287"> 
+                   <img src="{{$path}}store/{{$store['5']->image}}" alt="" height="160" width="295">
 </div>
                 </div>
          </div>
@@ -471,16 +447,19 @@ function c() {
        </div>
        
        
-       <div class="content_7">
-         <ul>
-         <img src="/uploadfile/image/20190211/20141111091018_74432.jpg" alt=""><img src="/uploadfile/image/20190211/20141111091040_53324.jpg" alt=""><img src="/uploadfile/image/20190211/20141111091055_80878.jpg" alt=""><img src="/uploadfile/image/20190211/20141111091128_27001.jpg" alt=""><img src="/uploadfile/image/20190211/20141111091145_38487.jpg" alt="">
-          
-         </ul>
+       {{--<div class="content_7">--}}
+         {{--<ul>--}}
+         {{--<img src="/uploadfile/image/20190211/20141111091018_74432.jpg" alt="">--}}
+             {{--<img src="/uploadfile/image/20190211/20141111091040_53324.jpg" alt="">--}}
+             {{--<img src="/uploadfile/image/20190211/20141111091055_80878.jpg" alt="">--}}
+             {{--<img src="/uploadfile/image/20190211/20141111091128_27001.jpg" alt="">--}}
+             {{--<img src="/uploadfile/image/20190211/20141111091145_38487.jpg" alt="">--}}
+         {{--</ul>--}}
          
-         <div class="he">
-          <img src="system/templates/zsyy/images/he.png">
-         </div>
-       </div>
+         {{--<div class="he">--}}
+          {{--<img src="system/templates/zsyy/images/he.png">--}}
+         {{--</div>--}}
+       {{--</div>--}}
      
        
        
@@ -503,7 +482,7 @@ function c() {
       
        <div style=" height:30px; line-height:30px;  text-align:left;">
        <span style="color:#F00;">友情链接：</span>
-       <a href="http://www.zhushipeixun.com" target="_blank">山东鹊经堂培训</a>&nbsp; <a href="http://sdzsyyjt.cn" target="_blank">鹊经堂</a>&nbsp; <a href="http://www.kunfutang.com/" target="_blank">坤福堂连锁加盟</a>&nbsp; 
+       <a href="/" target="_blank">点击申请友情链接</a>&nbsp;
        
       </div>
       
@@ -512,7 +491,7 @@ function c() {
       </div>
        <div class="bcon">
        版权所有：山东鹊经堂 备ICP80005189<br>  全国统一电话：0530-4582888<br>
-        公司地址：山东省菏泽市单城工业园 
+        公司地址：山东省济宁市
         
       </div>
        <div class="right" style="@if(!$bottom_right['isshow'])display:none;@endif">

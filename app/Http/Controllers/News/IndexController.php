@@ -37,6 +37,10 @@ class IndexController extends Controller
 
         $data['product'] = DB::table('n_product_desc')->where('isuse','1')->get();
         $data['Bbanner'] = DB::table('n_banner_bottom')->where('isuse','1')->get();
+        $data['store']   = DB::table('n_store')->where('isshow','1')->get();
+        $data['video']   = DB::table('n_video')->where('isshow','1')->get();
+        $data['videolenth'] = count($data['video']);
+        $data['videolenth'] = 8;
 // dd($data);
         return view('/news/index/index',$data);
     }

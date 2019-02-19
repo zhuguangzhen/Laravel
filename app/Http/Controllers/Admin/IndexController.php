@@ -14,5 +14,10 @@ class IndexController extends Controller
    public function checklogin(Request $request){
    		$userName = $request->userName;
    		$pass = $request->pass;
+      
+   }
+
+   public function index(Request $request){
+
    }
 }
