@@ -14,10 +14,14 @@ class IndexController extends Controller
    public function checklogin(Request $request){
    		$userName = $request->userName;
    		$pass = $request->pass;
-      
+
    }
 
    public function index(Request $request){
+      return view('Admin/index/index');
+   }
 
+   public function setting(Request $request){
+      return view('Admin/index/setting');
    }
 }

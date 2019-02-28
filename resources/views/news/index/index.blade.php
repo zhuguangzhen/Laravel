@@ -114,12 +114,11 @@
 							<td><div style="margin-left:10px;">
 							<script>
 								var marqueeContent=new Array();   //滚动主题
-													
-								marqueeContent[0]='<a href="#" target="_blank">鹊经堂</a>';
-								marqueeContent[1]='<a href="#" target="_blank">鹊经堂</a>';
-								marqueeContent[2]='<a href="#" target="_blank">鹊经堂</a>';
-								marqueeContent[3]='<a href="#" target="_blank">鹊经堂</a>';
-								marqueeContent[4]='<a href="#" target="_blank">鹊经堂</a>';
+
+								marqueeContent[0]='<a href="#" target="_blank"></a>';
+								marqueeContent[1]='<a href="#" target="_blank"></a>';
+								marqueeContent[2]='<a href="#" target="_blank"></a>';
+								marqueeContent[3]='<a href="#" target="_blank"></a>';
 								
 								var marqueeInterval=new Array();  //定义一些常用而且要经常用到的变量
 								var marqueeId=0;
@@ -127,7 +126,7 @@
 								var marqueeHeight=38;
 								function initMarquee() {
 								 var str=marqueeContent[0];
-								 document.write('<div id=marqueeBox style="overflow:hidden;height:'+marqueeHeight+'px" onmouseover="clearInterval(marqueeInterval[0])" onmouseout="marqueeInterval[0]=setInterval('startMarquee()',marqueeDelay)"><div>'+str+'</div></div>');
+								 document.write('<div id=marqueeBox style="overflow:hidden;height:'+marqueeHeight+'px" onmouseover="clearInterval(marqueeInterval[0])" onmouseout="marqueeInterval[0]=setInterval(startMarquee(),marqueeDelay)"><div>'+str+'</div></div>');
 								 marqueeId++;
 								 marqueeInterval[0]=setInterval("startMarquee()",marqueeDelay);
 								 }
@@ -167,16 +166,16 @@
     <!--  -->
 <div id="content_1" style="@if(!$content_1['isshow'])display:none;@endif">
   <div class="shnew">
-	<div >
+	<div>
        <div class="shoutitle">
-         <div class="shoutuan">新闻</div>
-         <div class="right"><a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=2&amp;l=1&amp;page=1">浏览更多新闻 &gt;</a> </div>
+         <div class="shoutuan">官方动态</div>
+         <div class="right"><a href="/group=news&action=index&method=articlelist">浏览更多新闻 &gt;</a> </div>
        </div>
        
         <div class="shoutxuan">
-           <ul>
+           <ul id="new-ul">
            @foreach($newslist as $k=>$nv)
-           <li><a href="#" onmouseover="easytabs('1', {{$k+1}});" onfocus="easytabs('1', {{$k+1}});" onclick="return false;" title="" id="tablink{{$k+1}}" class="tab{{$k+1}} tabactive">{{$nv->title}}</a></li>
+           <li><a href="#" onmouseover="easytabs('1',{{$k+1}});" onfocus="easytabs('1',{{$k+1}});" onclick="return false;" title="" id="tablink{{$k+1}}" class="tab{{$k+1}}  tabactive" style="@if($k==0) display:block; @endif">{{$nv->title}}</a></li>
            @endforeach
            </ul>
        </div>
@@ -184,23 +183,23 @@
 @foreach($ismin as $k=>$v)
 <div id="tabcontent{{$k+1}}" style=" @if($k== 0) display: block; @else display: none; @endif">
         <div class="tujian">
-        
+            <a href="/group=news&action=index&method=articledetail?id={{$v->id}}">
           <div class="tu"><img src="{{$path}}article/{{$v->image}}"></div>
           <div class="turight">
             <div class="turtitle">{{$v->title}}</div>
             
             <div class="tucontent">
-            <span>&nbsp;<a href="">更多&gt;&gt;</a></span> 
+            <span>&nbsp;<a href="/group=news&action=index&method=articlelist">更多&gt;&gt;</a></span>
             </div>
           </div>
-           
+            </a>
         </div>      
      <div class="newl">
      <ul>
      @foreach($notmain as $ks=>$vs)
      @if($ks == $v->nid)
      	@foreach($vs as $m)
-       <li><div class="lititle"><a href="">{{$m->title}}</a></div><div class="times">{{$m->create}}</div></li> 
+       <li><div class="lititle"><a href="/group=news&action=index&method=articledetail?id={{$m->id}}">{{$m->title}}</a></div><div class="times">{{$m->create}}</div></li>
      	@endforeach
      @endif
 	@endforeach
@@ -217,13 +216,13 @@
     <div class="sz">&nbsp;</div>
       <div>
       <div class="div1">
-      <a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=28&amp;l=1&amp;page=1"><img src="system/templates/zsyy/images/xx1.jpg" width="263" height="84"></a>
+      <a href="{{$div1['link']}}"><img src="{{$path}}setting/{{$div1['image']}}" width="263" height="84"></a>
       </div>
       <div class="div2">
-      <a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=41&amp;l=1&amp;page=1"><img src="system/templates/zsyy/images/xx2.jpg" width="263" height="76"></a>
+      <a href="{{$div2['link']}}"><img src="{{$path}}setting/{{$div2['image']}}" width="263" height="76"></a>
       </div>
       <div class="div3">
-      <a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=9&amp;l=1&amp;page=1"><img src="system/templates/zsyy/images/xx3.jpg" width="263" height="105"></a>
+      <a href="{{$div3['link']}}"><img src="{{$path}}setting/{{$div3['image']}}" width="263" height="105"></a>
       </div>
       </div>
     </div>  
@@ -263,13 +262,17 @@
 						<img src="system/templates/zsyy/images/content_3_icon5.jpg">
 					</div>
 					<div class="content_3_title">
-						<a href="index.php?m=content&amp;c=index&amp;f=lists&amp;catid=63&amp;l=1&amp;page=1">视频</a>
+						<a href="/group=news&action=index&method=videolist">视频</a>
 					</div>				
 				</div>
                 
 				<div class="content_3_right_2">
-					<embed width="254" height="150" type="application/x-shockwave-flash" src="http://player.youku.com/player.php/sid/XOTA2MTIxMDgw/v.swf" autoplay="autoplay" allowfullscreen="true" allownetworking="all" allowscriptaccess="always">
-				</div>
+					{{--<embed width="254" height="150" type="application/x-shockwave-flash" src="{{$path}}video/1.mp4" autoplay="autoplay" allowfullscreen="true" allownetworking="all" allowscriptaccess="always">--}}
+                        <video controls="controls" width="100%" width="254" height="150">
+                            <source src="{{$path}}video/1.mp4" type="video/mp4">
+                            <source src="1.ogg" type="video/ogg">
+                        </video>
+                </div>
             
                 <div class="content_3_right_2">
                 	<br>
@@ -293,7 +296,7 @@
      <img src="system/templates/zsyy/images/he1.jpg">
     </div>
      <div class="content_4_2">
-     山东鹊经堂品牌核心产业
+     山东鹊经堂品牌核心理念
     </div>
      <div class="content_4_3">
      &nbsp;
@@ -305,20 +308,14 @@
 
 
     
-      <div class="content4">
-     
-
-      
+<div class="content4">
     <div class="TabContent">
-
-<!-- 	<div id="myTab_Content0" style="display: none;"><a href="http://www.sdzsyyjt.com/index.php?m=content&amp;c=index&amp;f=lists&amp;catid=12&amp;l=1&amp;page=1}" target="_blank"><img src="/uploadfile/image/20190211/20160313150020_74356.jpg" alt="" height="380" width="1000"></a></div>
-	<div id="myTab_Content1" class="none" style="display: none;"><img src="/uploadfile/image/20170904/20170904150955_77489.jpg" alt=""><br></div>
-    <div id="myTab_Content2" class="none" style="display: none;"><p align="center"><img src="/uploadfile/image/20190211/20190111165633_46592.jpg" alt=""></p></div>
-	 -->
 	 @foreach($Bbanner as $k=>$v)
 	 <div id="myTab_Content{{$k}}" class="none" style="@if($k==0)display: block;@else display: none; @endif">
 	 	<div style="text-align:center;">
-	 		<a href="" target="_blank"><img src="{{$path}}{{$v->image}}" width="1000" height="379" alt=""></a> 
+	 		<a href="@if($v->type=='article')/group=news&action=index&method=articledetail?id={{$v->pid}} @elseif($v->type=='video') /group=news&action=index&method=videodetail?id={{$v->pid}} @endif" target="_blank">
+                <img src="{{$path}}{{$v->image}}" width="1000" height="379" alt="">
+            </a>
 	 	</div>
 	 </div>
 	 @endforeach
@@ -339,56 +336,26 @@
 	<div id="content_5" style=" @if(!$content_5['isshow'])display:none;@endif  @if($videolenth > 4 ) height:{{ceil($videolenth/4)*250}}px; @endif ">
 		<div class="content_5_2" >
          <div class="video_image">
-          <a href=""><img src="{{$setting_path.$video_img['image']}}"></a>
+          <a href="/group=news&action=index&method=videolist">
+              <img src="{{$setting_path.$video_img['image']}}">
+          </a>
          </div>
          <div class="honorlest">
      <ul>
-         <li>
+         @foreach($video as $v)
+             <a href="/group=news&action=index&method=videodetail?id={{$v->id}}"><li>
             <div class="honorz">
-             <div class="honorpic"><img src="uploadfile/image/20190211/201610150937060.png"></div>
-             <div>五四共青团证书</div>
+             <div class="honorpic">
+                 <img src="{{$path}}video/{{$v->image}}">
+             </div>
+                <div style="margin-top: -110px;z-index:900;position: absolute;margin-left: 90px;border-radius: 25px">
+                    <img src="{{$path}}setting/zt.jpg" alt="" width="50px" height="50px" style="border-radius: 25px"">
+                </div>
+             <div>{{$v->title}}</div>
             </div>
             <div class="clear"></div>
-           </li>
-                          
-         <li>
-            <div class="honorz">
-             <div class="honorpic"><img src="uploadfile/image/20190211/201603050528400.jpg"></div>
-             <div>菏泽市市长质量奖</div>
-            </div>
-            <div class="clear"></div>
-           </li>
-                          
-         <li>
-            <div class="honorz">
-             <div class="honorpic"><img src="uploadfile/image/20190211/201505110955510.png"></div>
-             <div>企业信用级评价AAA级信用企业</div>
-            </div>
-            <div class="clear"></div>
-           </li>
-                          
-         <li>
-            <div class="honorz">
-             <div class="honorpic"><img src="uploadfile/image/20190211/201505111020190.png"></div>
-             <div>高新技术企业</div>
-            </div>
-            <div class="clear"></div>
-           </li>
-               <li>
-                   <div class="honorz">
-                       <div class="honorpic"><img src="uploadfile/image/20190211/201505111020190.png"></div>
-                       <div>高新技术企业</div>
-                   </div>
-                   <div class="clear"></div>
-               </li>
-
-               <li>
-                   <div class="honorz">
-                       <div class="honorpic"><img src="uploadfile/image/20190211/201505111020190.png"></div>
-                       <div>高新技术企业</div>
-                   </div>
-                   <div class="clear"></div>
-               </li>
+           </li></a>
+         @endforeach
          </ul>
 
          </div>

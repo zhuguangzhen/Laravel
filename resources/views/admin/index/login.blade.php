@@ -4,10 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>运营后台</title>
+    <title>鹊经堂运营后台</title>
 
     <link href="/css/admin/demo.css" rel="stylesheet" media="all" />
-<link rel="stylesheet" href="/css/admin/index.css">
+<link rel="stylesheet" href="/css/admin/index2.css">
 <link rel="stylesheet" href="/css/admin/bootstrap.min.css">
     <!--[if IE]>
 
@@ -86,7 +86,7 @@
 		return false;
 	};
     </script>
-	
+
 </head>
 <body id="by">
 
@@ -117,7 +117,7 @@
 </div>
 
 	<div class="content">
-		<div class="bidTitle">运营后台</div>
+		<div class="bidTitle">鹊经堂运营后台</div>
 		<div class="logCon">
 			<span>账号:</span>
 			<input class="bt_input" type="text">
