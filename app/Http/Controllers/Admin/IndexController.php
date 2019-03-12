@@ -9,7 +9,7 @@ use Intervention\Image\Facades\Image;
 class IndexController extends Controller
 {
    public function login(Request $request){
-   		return view('/Admin/index/login');
+   		return view('/admin/index/login');
    }
 
    public function checklogin(Request $request){
@@ -19,7 +19,7 @@ class IndexController extends Controller
    }
 
    public function index(Request $request){
-      return view('Admin/index/index');
+      return view('admin/index/index');
    }
 
 
@@ -34,52 +34,52 @@ class IndexController extends Controller
          $data[$v->name]['showType'] = $v->showType;
       }
 //dd($data);
-      return view('Admin/index/setting',$data);
+      return view('admin/index/setting',$data);
    }
 
    //轮播图管理
    public function bannerManage(Request $request){
-      return view('Admin/index/bannermanage');
+      return view('admin/index/bannermanage');
    }
 
    //导航分类管理
    public function navigationManage(Request $request){
-      return view('Admin/index/navigationmanage');
+      return view('admin/index/navigationmanage');
    }
 
    //文章管理
    public function articleManage(Request $request){
-      return view('Admin/index/articlemanage');
+      return view('admin/index/articlemanage');
    }
 
    //文章管理
    public function articleList(Request $request){
-      return view('Admin/index/articlelist');
+      return view('admin/index/articlelist');
    }
 
    //视频列表
    public function videoList(Request $request){
-      return view('Admin/index/videolist');
+      return view('admin/index/videolist');
    }
 
    //视频管理
    public function videoManage(Request $request){
-      return view('Admin/index/videomanage');
+      return view('admin/index/videomanage');
    }
 
    //图库管理
    public function picManage(Request $request){
-   return view('Admin/index/picmanage');
+   return view('admin/index/picmanage');
    }
 
    //管理员管理
    public function userManage(Request $request){
-      return view('Admin/index/usermanage');
+      return view('admin/index/usermanage');
    }
 
    //退出
    public function logOut(Request $request){
-      return view('/Admin/index/logout');
+      return view('/admin/index/logout');
    }
 
    public function addpicture(Request $request){
