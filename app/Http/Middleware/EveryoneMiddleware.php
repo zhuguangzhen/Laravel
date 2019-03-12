@@ -23,7 +23,9 @@ class EveryoneMiddleware
         if(empty($matchs)){
             preg_match('/(\S+)\/(\S+)\/(\S+)/', $pathInfo, $matchs);
         }
-    
+        define('BASE_PATH',base_path());//项目根目录的绝对路径
+        define('PUBLIC_PATH',public_path());//public目录的绝对路径：
+        define('UP_PATH',PUBLIC_PATH.'/image/news');
         define('GROUP', strtolower($matchs[1]));
         define('ACTION', strtolower($matchs[2]));
         define('METHOD', strtolower($matchs[3]));

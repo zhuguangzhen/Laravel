@@ -33,7 +33,7 @@
 <body>
 <div id="container">
 	<div id="header">
-		<div class="logo" style = " @if(!$logo['isshow'])display:none; @endif"><img src="{{$setting_path.$logo['image']}}"></div>
+		<div class="logo" style = " @if(!$logo['isshow'])display:none; @endif heigit:96px;width:320px;"><img src="{{$setting_path.$logo['image']}}"></div>
 		<div class="header_2">
 			<div class="header_21">
 				<table border="0" cellpadding="0" cellspacing="0" style="float:right;">
