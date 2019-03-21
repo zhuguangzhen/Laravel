@@ -183,8 +183,8 @@
                 <span>微博：</span>
                 <form method="post" action="group=admin&action=index&method=addpicture">
                 <input type="hidden" name="name" value="sina">
-                <input name="isshow" type="radio" @if($sina['isshow']=='1')checked="checked"@endif/>显示
-                <input name="isshow" type="radio"  @if($sina['isshow']!='1')checked="checked"@endif/>不显示
+                <input name="isshow" type="radio" value="1" @if($sina['isshow']=='1')checked="checked"@endif/>显示
+                <input name="isshow" type="radio" value="0" @if($sina['isshow']!='1')checked="checked"@endif/>不显示
                 ------连接地址：<input type="text" name="link" value="{{$sina['link']}}" id="" style="width: 260px;">
                     <input type="submit" name="提交" id="">
                 </form>
@@ -194,8 +194,8 @@
                 <span>微信：</span>
                 <form method="post" action="group=admin&action=index&method=addpicture">
                 <input type="hidden" name="name" value="wechat">
-                <input name="isshow" type="radio" @if($wechat['isshow']=='1')checked="checked"@endif/>显示
-                <input name="isshow" type="radio" @if($wechat['isshow']!='1')checked="checked"@endif/>不显示
+                <input name="isshow" type="radio" value="1" @if($wechat['isshow']=='1')checked="checked"@endif/>显示
+                <input name="isshow" type="radio" value="0" @if($wechat['isshow']!='1')checked="checked"@endif/>不显示
                 ------连接地址：<input type="text" name="link" value="{{$wechat['link']}}" id="" style="width: 260px;">
                 <input type="submit" name="提交" id="">
                 </form>

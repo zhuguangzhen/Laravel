@@ -39,8 +39,63 @@ class IndexController extends Controller
 
    //轮播图管理
    public function bannerManage(Request $request){
-      return view('admin/index/bannermanage');
+      $list1 = DB::table('n_banner')->where('isuse','1')->whereNull('delete_at')->orderBy('order')->get();
+      $list2 = DB::table('n_banner_bottom')->where('isuse','1')->whereNull('delete_at')->orderBy('order')->get();
+      $data['banner1'] = $list1;
+      $data['banner2'] = $list2;
+      $data['countbanenr1'] = $list1->count() +1;
+      $data['path'] = config('app.new_url').'image/news/';
+//dd($data);
+      return view('admin/index/bannermanage',$data);
    }
+
+   //轮播图 新增编辑
+   public function bannerOne(Request $request){
+      $args['file'] = $request['file'];
+      $isshow = empty($request->isshow)?1:$request->isshow;
+      $link = $request->link;
+      $args['width'] = $request->wid;
+      $args['height'] = $request->hei;
+      if(!empty($file)){
+         $args['file'] = $request['file'];
+         $args['width'] = $request->wid;
+         $args['height'] = $request->hei;
+         $args['path'] = UP_PATH;
+         $data = $this->addpic($args);
+         if($data['status']==1){
+            $info['image'] = $data['fileName'];
+         }
+      }
+      DB::table('n_banner')
+          ->where('id',$request->id)
+          ->update($info);
+      return back();
+   }
+
+   public function bannerTwo(Request $request){
+      $args['file'] = $request['file'];
+      $isshow = empty($request->isshow)?1:$request->isshow;
+      $link = $request->link;
+      $args['width'] = $request->wid;
+      $args['height'] = $request->hei;
+      if(!empty($args['file'])){
+         $args['file'] = $request['file'];
+         $args['width'] = $request->wid;
+         $args['height'] = $request->hei;
+         $args['path'] = UP_PATH;
+         $data = $this->addpic($args);
+         if($data['status']!=0){
+            $info['image'] = $data['fileName'];
+         }
+      }
+      if(!empty($info)){
+         DB::table('n_banner_bottom')
+             ->where('id',$request->id)
+             ->update($info);
+      }
+      return back();
+   }
+
 
    //导航分类管理
    public function navigationManage(Request $request){
@@ -82,38 +137,66 @@ class IndexController extends Controller
       return view('/admin/index/logout');
    }
 
+   //网站基础图片修改
    public function addpicture(Request $request){
       $file = $request['file'];
       $isshow = empty($request->isshow)?1:$request->isshow;
-      $size = getimagesize($file);//215:168长宽比
-      $width=$size['0'];// 宽
-      $height=$size['1'];//高
+      $link = $request->link;
+      if(!empty($file)){
+         $args['file'] = $request['file'];
+         $args['width'] = $request->wid;
+         $args['height'] = $request->hei;
+         $args['path'] = UP_PATH.'/setting/';
+         $data = $this->addpic($args);
+         if($data['status']==1){
+            $info['image'] = $data['fileName'];
+         }
+      }
 
+      if($isshow!=null){
+         $info['isshow'] = $isshow;
+      }
+      if(!empty($link)){
+         $info['link'] = $link;
+      }
+
+      DB::table('n_setting')
+          ->where('name',$request->name)
+          ->update($info);
+
+      return back();
+   }
+
+   //上传图片
+   private function addpic($args){
+      $file = $args['file'];
       $str = $file->getClientOriginalName();
       $str = explode('.',$str);
       $extension=$str['1'];
+      $status['status'] = 0;
       if (in_array(strtolower($extension),['jpg','png'])) {
-         $width = $request->wid;
-         $height = $request->hei;
+         $width = $args['width'];
+         $height = $args['height'];
 
          $newName = 'n_'.time().rand(100000, 999999).'.'.$extension;//文件新名
          $newimgname = 'New'.$newName;//裁剪文件新名
 
-         $image_res = Image::make($file)->crop($width,$height,0, 0)->save(UP_PATH.'/setting/'.$newimgname);
-         $image_res2 = $file->move(UP_PATH.'/setting/',$newName);
-         if($image_res && $image_res2){
+         $image_res = Image::make($file)->crop($width,$height,0, 0)->save($args['path'].$newimgname);
+         $image_res2 = $file->move($args['path'],$newName);
 
-            $info['isshow'] = $isshow;
-            $info['image'] = $newimgname;
-            $data = DB::table('n_setting')
-                ->where('name',$request->name)
-                ->update($info);
-            if(!$data){
-               return back();
-            }
+         if($image_res && $image_res2){
+           $status['status'] = 1;
+           $status['fileName']  = $newimgname;
          }
-         return back();
+
+         if($image_res2){
+            $status['status'] = 2;
+            $status['fileName']  = $newName;
+
+         }
       }
+      return $status;
+
    }
 
 
