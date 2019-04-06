@@ -16,7 +16,7 @@
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="/css/admin/bootstrap.min.css" type="text/css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="/js/admin/jquery.min.js"></script>
+    <script src="js/admin/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="/js/admin/bootstrap/js/bootstrap.min.js"></script>
     <style>
@@ -35,7 +35,7 @@
     </style>
 </head>
 <body style="background-color: #e6ecf5">
-
+<div class="container">
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -64,7 +64,7 @@
                                             </div><br>
                                             <div class="div1">
                                                 <div class="div2">上传图片</div>
-                                                <input type="hidden" name="id" id="" value="{{$v->id}}">
+                                                <input type="hidden" name="name" id="" value="banner">
                                                 <input type="hidden" name="wid" id="" value="1920">
                                                 <input type="hidden" name="hei" id="" value="405">
                                                 <input type="file" class="inputstyle" id="inputBox" name='file' onclick="javascript:loadImg(this,{{$k+1}})" onchange="Javascript:validate_img(this);">
@@ -112,7 +112,6 @@
                                                         <div class="div1">
                                                             <div class="div2">上传图片</div>
                                                             <input type="hidden" name="name" id="" value="banner">
-                                                            <input type="hidden" name="id" id="" value="{{$v->id}}">
                                                             <input type="hidden" name="wid" id="" value="1000">
                                                             <input type="hidden" name="hei" id="" value="379">
                                                             <input type="file" class="inputstyle" id="inputBox" name='file' onclick="javascript:loadImg(this,{{$k+$countbanenr1}})" onchange="Javascript:validate_img(this);">
@@ -183,6 +182,6 @@
     }
 
 </script>
-
+    </div>
 </body>
 </html>

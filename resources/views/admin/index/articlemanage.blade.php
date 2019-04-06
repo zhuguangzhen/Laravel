@@ -8,115 +8,85 @@
     <link href="/css/admin/all.css" rel="stylesheet" type="text/css">
     <link href="/js/admin/editor/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="/js/admin/editor/css/froala_editor.min.css" rel="stylesheet" type="text/css">
+    <style>
+        .froala-element{
+            height:500px;
+        }
+        .article-title{
+            width:80%;height:35px;font-size: 24px;outline:medium;border-width: 0;
+        }
+        .article-desc{
+            font-size: 20px;color:#ccc;
+        }
+        #ismain{
+            display:none;
+        }
+        .button{
+            background-color:#6FB3E0;height:41px;width:144px;font-size:16px;border: 1px solid #6FB3E0;font-weight: bold;
+        }
+    </style>
 </head>
 
 <body style="background-color: #e6ecf5">
 <div class="book_con01">
-    <p class="book_p"><span class="book_titSpan"><input type="text" class="book_input01"/><label>类</label><input type="text" class="book_input02"/><label>号</label></span></p>
-    <h1 class="book_h01">xxxxxx<input type="text" class="book_input01"/>届<input type="text" class="book_input02"/>次会议第<input type="text" class="book_input01"/>号提案</h1>
-    <form id="form_demo" >   <p class="book_p">
+    <form id="form_demo"  method="post" action="group=admin&action=index&method=addpicture" enctype='multipart/form-data' >   <p class="book_p">
             <table class="book_table" border="1" cellpadding="10">
-                <tr><td>
-                        <label class="td_label">提案类型</label><i class="i_start"></i>
-                    </td>
-                    <td colspan="5"><input type="radio" class="input_radio" checked="checked" name="radio01"/><a>集体提案</a><input type="radio" class="input_radio" name="radio01"/><a>个人提案</a><input type="radio" class="input_radio" name="radio01"/><a>联名提案</a></td>
-
+                <tr>
+                    <td colspan="6"><label class="td_label"><center><h1>文章管理</h1></center></label></td>
                 </tr>
-                <tr><td>
-                        <label class="td_label">案由</label><i class="i_start"></i>
-                    </td>
-                    <td colspan="5"><input type="text" class="book_input03" name ="name" minlength="2"  required /></td>
-
-                </tr>
-                <tr><td><label class="td_label">第一提案人</label><i class="i_start"></i></td>
-                    <td ><input type="text" class="book_input03" name ="name" minlength="2"  required /></td>
-
-                    <td><label class="td_label">名次</label></td>
-                    <td>
-                        <input type="text" class="book_input03"/>
-                    </td>
-                    <td><label class="td_label">党派</label></td>
-                    <td>
-                        <input type="text" class="book_input03"/>
+                <tr>
+                    <td colspan="6">
+                        <label class="td_label">文章标题：</label>
+                        <input type="text" name="title" id="" class="article-title">
                     </td>
                 </tr>
-                <tr><td><label class="td_label">委员证号</label></td>
-                    <td ><input type="text" class="book_input03"/></td>
-
-                    <td><label class="td_label">邮政编号</label></td>
-                    <td>
-                        <input type="text" class="book_input03"/>
+                <tr>
+                    <td colspan="6"><label class="td_label">文章简介：</label><br>
+                        <textarea name="desc" id="" cols="100%" rows="5" class="article-desc"></textarea>
                     </td>
-                    <td><label class="td_label">联系电话</label></td>
-                    <td>
-                        <input type="number" class="book_input03"/>
-                    </td>
-                </tr>
-                <tr> <td><label class="td_label">单位及职务</label></td>
-                    <td colspan="2">
-                        <input type="text" class="book_input03"/>
-                    </td>
-                    <td><label class="td_label">E-Mail</label></td>
-                    <td colspan="2">
-                        <input type="email" class="book_input03"/>
-                    </td>
-
-                </tr>
-                <tr> <td><label class="td_label">通讯地址</label></td>
-                    <td colspan="5">
-                        <input type="text" class="book_input03"/>
-                    </td>
-                </tr>
-                <tr><td><label class="td_label">主题词</label></td>
-                    <td colspan="5">
-                        <input type="file"  value="上传主题词"/>
-                    </td>
-                </tr>
-                <tr><td colspan="6"><label class="td_label">提案内容（包括案由、案据和方案）</label></td>
-
                 </tr>
                 <tr><td colspan="6">
-                        <textarea  class="textArae" id="editor" ></textarea>
+                        <textarea  class="textArae" id="editor" >文章内容</textarea>
                     </td>
-
                 </tr>
-                <tr><td colspan="5"><label class="label_right">提案日期</label></td>
-                    <td> <input type="date" class="book_input03" id="demo"/></td>
-
-                </tr>
-                <tr ><td>
-                        <label class="td_label">附件</label>
+                <tr>
+                    <td colspan="6">
+                        <span>是否设置侧边栏推荐：</span>
+                        <input type="radio" name="recomme" id="" value="1" >是
+                        <input type="radio" name="recomme" id="" value="0" checked>否
                     </td>
-                    <td colspan="5">
-        <p><label class="td_label">文件1</label><input type="file" value="选择文件"/></p>
-        <p><label class="td_label">文件2</label><input type="file" value="选择文件"/> </p>
-        <p><label class="td_label">文件3</label><input type="file" value="选择文件"/></p>
-        <p><label class="label_red">附件总大小不能超过200M，超过限制,将不能发送</label></p>
-        </td>
-
-        </tr>
-        <tr><td><label class="td_label">相关情况</label></td>
-            <td colspan="5"><input type="checkbox" class="input_radio" /><a>同意公开发表</a><input type="checkbox" class="input_radio" /><a>同意其它委员参阅</a></td>
-
-        </tr>
-        <tr><td colspan="2"><label class="td_label">希望办理的承办单位（供参考）</label></td>
-            <td colspan="4"><input type="button" value="选择单位"/></td>
-
-        </tr>
-        <tr><td><label class="td_label">提案联系人</label></td>
-            <td colspan="4"><input type="text" placeholder="输入姓名" class="book_input04"/><input type="text" placeholder="输入单位" class="book_input05"/><input type="text" placeholder="输入电话" class="book_input04"/></td>
-
-            <td><input type="button" value="添加提案联系人"/></td>
-        </tr>
-        <tr><td><label class="td_label">提案联名人</label></td>
-            <td colspan="4"><input type="text"  class="book_input03"/></td>
-
-            <td><input type="button" value="添加提案联名人"/></td>
-        </tr>
-
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <span>选择展示模块：</span>
+                        <select name="nid" id="select-nid" onchange="javascript:ismains(this.options[this.options.selectedIndex].value)" >
+                            <option value="0">不在首页展示</option>
+                            <option value="1">首页展示111</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" id="ismain">
+                        <span>是否设置为首页文章模块的首位：</span>
+                        <input type="radio" name="ismain" id="" value="1" >是
+                        <input type="radio" name="ismain" id="" value="0" checked>否
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" id="ismain">
+                        <span>首页模块的首位图：</span>
+                        <input type="radio" name="ismain" id="" value="1" >是
+                        <input type="radio" name="ismain" id="" value="0" checked>否
+                    </td>
+                </tr>
         </table>
         </p>
-        <p class="book_foot"><input type="submit" value="提交提案"/><input type="button" value="存为草稿"/><input type="button" value="重置"/><input type="button" value="取消"/></p></form>
+        <p class="book_foot">
+            <input type="submit" class="button" value="提交保存"/>
+            <input type="button" class="button" value="存为草稿"/>
+            <input type="button" class="button" value="取消"/>
+        </p>
+    </form>
 </div>
 <script  src="/js/admin/jquery/jQuery-2.2.0.min.js"></script>
 <script src="/js/admin/editor/js/froala_editor.min.js"></script>
@@ -134,16 +104,13 @@
     $(function(){
         $('#editor').editable({inlineMode: false, alwaysBlank: true})
     });
-</script>
-<script >
-    $.validator.setDefaults({
-        submitHandler: function() {
-            alert("修改成功");
+    function ismains(val){
+        if(val!=0){
+            $('#ismain').show();
+        }else{
+            $('#ismain').hide();
         }
-    });
-    $().ready(function() {
-        $("#form_demo").validate();
-    });
+    }
 </script>
 <script>
     !function(){

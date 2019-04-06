@@ -98,9 +98,50 @@ class IndexController extends Controller
 
 
    //导航分类管理
-   public function navigationManage(Request $request){
-      return view('admin/index/navigationmanage');
+   public function navigationManage(){
+      $navigation = DB::table('n_navigation')->whereNull('delete_at')->orderBy('order')->get();//导航
+      $navigationlist = DB::table('n_navigation_list')->whereNull('delete_at')->orderBy('order')->get();//导航列表
+      foreach($navigation as $k=>$v){
+         $data[$k]['id'] = $v->id;
+         $data[$k]['name'] = $v->name;
+         $data[$k]['order'] = $v->order;
+         $data[$k]['create_at'] = $v->create_at;
+         $data[$k]['update_at'] = $v->update_at;
+         foreach($navigationlist as $key=>$val){
+            if($v->id == $val->pid){
+               $data[$k]['child'][$key]['id'] = $val->id;
+               $data[$k]['child'][$key]['name'] = $val->name;
+               $data[$k]['child'][$key]['order'] = $val->order;
+               $data[$k]['child'][$key]['create_at'] = $val->create_at;
+               $data[$k]['child'][$key]['update_at'] = $val->update_at;
+            }
+         }
+
+      }
+      $info['data'] = $data;
+      return view('admin/index/navigationmanage',$info);
    }
+
+   public function navigatdel(Request $request){
+      $id   = $request->id;
+      $type = $request->type;
+      $time = date('Y-m-d H:i:s',time());
+      if($type=='one'){
+         $list = DB::table('n_navigation_list')->where('pid',$id)->whereNull('delete_at')->count();
+         if($list==0){
+            DB::table('n_navigation')->where('id',$id)->update(['delete_at'=>$time]);
+         }else{
+            $status['status'] = 0;
+            $status['msg'] = '该导航下有二级导航无法删除';
+            return back()->with('error',$status['msg']);
+         }
+
+      }else{
+         DB::table('n_navigation_list')->where('id',$id)->update(['delete_at'=>$time]);
+      }
+      return back();
+   }
+
 
    //文章管理
    public function articleManage(Request $request){
@@ -129,7 +170,9 @@ class IndexController extends Controller
 
    //管理员管理
    public function userManage(Request $request){
-      return view('admin/index/usermanage');
+      $info = DB::table('n_admin_user')->whereNull('delete_at')->get();
+      $data['data'] = $info;
+      return view('admin/index/usermanage',$data);
    }
 
    //退出

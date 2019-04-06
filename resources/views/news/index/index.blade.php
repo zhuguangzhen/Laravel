@@ -180,7 +180,7 @@
            </ul>
        </div>
 
-@foreach($ismin as $k=>$v)
+@foreach($ismain as $k=>$v)
 <div id="tabcontent{{$k+1}}" style=" @if($k== 0) display: block; @else display: none; @endif">
         <div class="tujian">
             <a href="/group=news&action=index&method=articledetail?id={{$v->id}}">
