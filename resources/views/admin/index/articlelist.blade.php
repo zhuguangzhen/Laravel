@@ -25,89 +25,46 @@
                         编号
                     </th>
                     <th>
-                        产品
+                        标题
                     </th>
                     <th>
-                        交付时间
+                        创建时间
                     </th>
                     <th>
                         状态
                     </th>
+                    <th>
+                        操作
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Default
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Approved
-                    </td>
-                </tr>
-                <tr class="error">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                </tr>
+                @foreach($list as $v)
                 <tr class="info">
                     <td>
-                        4
+                        {{$v->id}}
                     </td>
                     <td>
-                        TB - Monthly
+                        {{$v->title}}
                     </td>
                     <td>
-                        04/04/2012
+                        {{$v->create_at}}
                     </td>
                     <td>
-                        Call in to confirm
+                        @if($v->audtio == 1)
+                            草稿
+                        @else
+                            正常
+                        @endif
+                    </td>
+                    <td>
+                        编辑 -|- 删除
                     </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
+            <div class="page" style=" float: right;margin-right: 50px;">{{$list -> links()}}</div>
         </div>
     </div>
 </div>

@@ -150,7 +150,9 @@ class IndexController extends Controller
 
    //文章管理
    public function articleList(Request $request){
-      return view('admin/index/articlelist');
+      $list = DB::table('n_article')->paginate(10);;
+      $data['list'] = $list;
+      return view('admin/index/articlelist',$data);
    }
 
    //视频列表
