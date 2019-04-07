@@ -215,7 +215,8 @@
                     {{$article->desc}}
                 </div>
                 <div class="article-content">
-                    {{$article->content}}
+                    <span data="" id="edit">{{$article->content}}</span>
+                    <span data="{{$article->content}}" id="editor"></span>
                 </div>
             </div>
 
@@ -279,6 +280,11 @@
 
 </div>
 <script>
+    $(function(){
+        var str =  $('#editor').attr('data');
+        $('#editor').html(str);
+        $('#edit').css('display','none');
+    });
     var box = document.getElementById("list-right");
     var box2 = document.getElementById("list-left");
 

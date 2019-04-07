@@ -24,12 +24,18 @@
         .button{
             background-color:#6FB3E0;height:41px;width:144px;font-size:16px;border: 1px solid #6FB3E0;font-weight: bold;
         }
+        input{border: 0!important; background: #fff;}
+        input[readonly]{background: #fff !important;}
+        .uploadImages{border: 2px dotted #d9dadc;  display: block;  width: 160px;  height:100px; }
+        .div1{float: left;height: 41px;background: #6FB3E0;width: 144px;position:relative;}
+        .div2{text-align:center;padding-top:12px;font-size:15px;font-weight:800}
+        .inputstyle{ width: 144px; height: 41px;cursor: pointer;font-size: 30px;outline: medium none; position: absolute;filter:alpha(opacity=0);-moz-opacity:0; opacity:0; left:0px; top: 0px;}
     </style>
 </head>
 
 <body style="background-color: #e6ecf5">
 <div class="book_con01">
-    <form id="form_demo"  method="post" action="group=admin&action=index&method=addpicture" enctype='multipart/form-data' >   <p class="book_p">
+    <form id="form_demo"  method="post" action="group=admin&action=index&method=articlein?id=@if(!empty($list)){{$list->id}}@endif" enctype='multipart/form-data' >   <p class="book_p">
             <table class="book_table" border="1" cellpadding="10">
                 <tr>
                     <td colspan="6"><label class="td_label"><center><h1>文章管理</h1></center></label></td>
@@ -37,31 +43,33 @@
                 <tr>
                     <td colspan="6">
                         <label class="td_label">文章标题：</label>
-                        <input type="text" name="title" id="" class="article-title">
+                        <input type="text" name="title" id="" class="article-title" value="@if(!empty($list)){{$list->title}} @endif">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6"><label class="td_label">文章简介：</label><br>
-                        <textarea name="desc" id="" cols="100%" rows="5" class="article-desc"></textarea>
+                        <textarea name="desc" id="" cols="100%" rows="5" class="article-desc">@if(!empty($list)){{$list->desc}} @endif</textarea>
                     </td>
                 </tr>
                 <tr><td colspan="6">
-                        <textarea  class="textArae" id="editor" >文章内容</textarea>
+                        <textarea  class="textArae" id="editor" name="contents" >@if(!empty($list)){{$list->content}} @endif</textarea>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6">
                         <span>是否设置侧边栏推荐：</span>
-                        <input type="radio" name="recomme" id="" value="1" >是
-                        <input type="radio" name="recomme" id="" value="0" checked>否
+                        <input type="radio" name="recomme" id="" value="1" @if(!empty($list)&& $list->recomme == 1) checked @endif>是
+                        <input type="radio" name="recomme" id="" value="0" @if((!empty($list)&& $list->recomme == 0) || empty($list)) checked @endif>否
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6">
                         <span>选择展示模块：</span>
                         <select name="nid" id="select-nid" onchange="javascript:ismains(this.options[this.options.selectedIndex].value)" >
-                            <option value="0">不在首页展示</option>
-                            <option value="1">首页展示111</option>
+                            <option value="0">不展示在首页</option>
+                            @foreach($info as $k=>$v)
+                            <option value="{{$v->id}}">{{$v->title}}</option>
+                            @endforeach
                         </select>
                     </td>
                 </tr>
@@ -73,10 +81,26 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="6" id="ismain">
-                        <span>首页模块的首位图：</span>
-                        <input type="radio" name="ismain" id="" value="1" >是
-                        <input type="radio" name="ismain" id="" value="0" checked>否
+                    <td colspan="6" id="">
+                        <span>文章简介图：</span>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-8" aria-describedby="helpBlock">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img class="uploadImages" id="image1" src="" /><!-- 图片模板  -->
+                                            </div>
+                                        </div><br>
+                                        <div class="div1">
+                                            <div class="div2">上传图片</div>
+                                            <input type="hidden" name="name" id="" value="logo">
+                                            <input type="hidden" name="wid" id="" value="89">
+                                            <input type="hidden" name="hei" id="" value="66">
+                                            <input type="file" class="inputstyle" id="inputBox" name='file' onclick="javascript:loadImg(this,1)" onchange="Javascript:validate_img(this);">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </td>
                 </tr>
         </table>
@@ -110,6 +134,21 @@
         }else{
             $('#ismain').hide();
         }
+    }
+
+    function loadImg($this,$n) {
+//            var img = document.getElementById("img");
+//            console.log($n);
+        var name = 'image'+$n;
+        var img = document.getElementById(name);
+        $this.addEventListener("change",function(){
+            var reader = new FileReader();
+            reader.readAsDataURL($this.files[0]);//发起异步请求
+            reader.onload = function(){
+                //读取完成后，将结果赋值给img的src
+                img.src = this.result
+            }
+        })
     }
 </script>
 <script>

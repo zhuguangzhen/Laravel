@@ -184,7 +184,7 @@
 <div id="tabcontent{{$k+1}}" style=" @if($k== 0) display: block; @else display: none; @endif">
         <div class="tujian">
             <a href="/group=news&action=index&method=articledetail?id={{$v->id}}">
-          <div class="tu"><img src="{{$path}}article/{{$v->image}}"></div>
+          <div class="tu"><img src="{{$path}}article/{{$v->image}}" style="width:160px;height:100px;"></div>
           <div class="turight">
             <div class="turtitle">{{$v->title}}</div>
             

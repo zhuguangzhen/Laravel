@@ -14,7 +14,11 @@ class IndexController extends Controller
 
       	$data['newslist'] =  DB::table('n_news')->where('isuse','1')->get();
 
-      	$newstitle =  DB::table('n_article')->whereNull('delete_at')->select('id','title','create_at','nid','ismain','image')->get();
+      	$newstitle =  DB::table('n_article')
+            ->whereNull('delete_at')
+            ->where('isShow','1')
+            ->select('id','title','create_at','nid','ismain','image')
+            ->get();
         foreach($newstitle as $v){
           $v->create = date('Y-m-d',strtotime($v->create_at));
             if($v->ismain){

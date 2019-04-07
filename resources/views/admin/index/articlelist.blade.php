@@ -58,7 +58,7 @@
                         @endif
                     </td>
                     <td>
-                        编辑 -|- 删除
+                        <a href="/group=admin&action=index&method=articlemanage?id={{$v->id}}">编辑</a> -|- 删除
                     </td>
                 </tr>
                 @endforeach

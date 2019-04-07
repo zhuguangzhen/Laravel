@@ -143,17 +143,73 @@ class IndexController extends Controller
    }
 
 
-   //文章管理
+   //文章编辑页
    public function articleManage(Request $request){
-      return view('admin/index/articlemanage');
+      $id = $request->id;
+      $list = '';
+      if(!empty($id)){
+         $list = DB::table('n_article')->where('id',$id)->first();
+      }
+      $info = DB::table('n_news')->get();
+      $data['list'] = $list;
+      $data['info'] = $info;
+      return view('admin/index/articlemanage',$data);
    }
 
-   //文章管理
-   public function articleList(Request $request){
-      $list = DB::table('n_article')->paginate(10);;
+   //文章列表
+   public function articleList(){
+      $list = DB::table('n_article')->paginate(10);
       $data['list'] = $list;
       return view('admin/index/articlelist',$data);
    }
+
+   //文章的更新和新增
+   public function articlein(Request $request){
+      $id = $request->id;
+      $arr['title'] = $request->title;
+      $arr['desc'] = $request->desc;
+      $arr['content'] = $request->contents;
+      $arr['recomme'] = $request->recomme;//是否推荐
+      $arr['nid'] = $request->nid; //所属文章模块的id
+      $arr['ismain'] = $request->ismain;//是否是首位
+      $file = $request['file'];
+      if(!empty($file)){
+         $args['path'] = UP_PATH.'/article';
+         $args['file'] = $file;
+         $status = $this->addpic($args);
+         $arr['image'] = $status['fileName'];
+      }
+      $this->articleShow($arr);
+      if(!empty($id)){
+         $res = DB::table('n_article')->where('id',$id)->update($arr);
+      }else{
+         $res = DB::table('n_article')->insert($arr);
+      }
+
+      if($res){
+         return redirect('/group=admin&action=index&method=articlelist?id={$id}');
+      }else{
+         return redirect('/group=admin&action=index&method=articlemanage');
+      }
+   }
+
+   private function articleShow($arr){
+      if(empty($arr['nid'])){
+         return true;
+      }
+
+      if($arr['isShow'] == 1){
+         $count = DB;;table('n_article')->where('nid',$arr['nid'])->whereNull('delete_at')->orderBy('create_at','asc')->get();
+         if(count($count)>3){
+            DB::table('n_article')->where('id',$count['0']->id)->update(['isShow'=>0]);
+         }
+      }
+
+      if($arr['ismain'] == 1){
+         DB::table('n_article')->where('nid',$arr['nid'])->whereNull('delete_at')->where('ismain','1')->update(['ismain'=>0]);
+      }
+   }
+
 
    //视频列表
    public function videoList(Request $request){
@@ -220,13 +276,16 @@ class IndexController extends Controller
       $extension=$str['1'];
       $status['status'] = 0;
       if (in_array(strtolower($extension),['jpg','png'])) {
-         $width = $args['width'];
-         $height = $args['height'];
+         $width = empty($args['width'])?'':$args['width'];
+         $height = empty($args['height'])?'':$args['height'];
 
          $newName = 'n_'.time().rand(100000, 999999).'.'.$extension;//文件新名
          $newimgname = 'New'.$newName;//裁剪文件新名
 
-         $image_res = Image::make($file)->crop($width,$height,0, 0)->save($args['path'].$newimgname);
+         $image_res = false;
+         if(!empty($width) && !empty($height)){
+            $image_res = Image::make($file)->crop($width,$height,0, 0)->save($args['path'].$newimgname);
+         }
          $image_res2 = $file->move($args['path'],$newName);
 
          if($image_res && $image_res2){
@@ -243,7 +302,13 @@ class IndexController extends Controller
       return $status;
 
    }
-
-
+   //文章编辑器图片上传
+public function upload(Request $request){
+   $args['file'] = $request['file'];
+   $args['path'] = UP_PATH.'/articles';
+   $status = $this->addpic($args);
+   $data['link'] =  config('app.new_url').'image/news/articles/'.$status['fileName'];
+   return $data;
+}
 
 }
